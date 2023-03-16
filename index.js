@@ -22,7 +22,7 @@ app.get("/eventos", async (req, res) => {
         const eventos = await getEventos();
         res.json(eventos);
     } catch (error) {
-        res.status(00).send(error);
+        res.status(500).send(error);
     }
 });
 
