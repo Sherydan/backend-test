@@ -11,7 +11,9 @@ const {
     registrarUsuario,
 } = require("./consultas");
 
-app.listen(3001, console.log("SERVER ON"));
+
+app.set("port", process.env.PORT || 4000);
+app.listen(app.get("port"), console.log(`Serving on port ${app.get("port")}`));
 app.use(cors());
 app.use(express.json());
 
