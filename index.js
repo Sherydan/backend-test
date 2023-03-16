@@ -22,7 +22,7 @@ app.get("/eventos", async (req, res) => {
         const eventos = await getEventos();
         res.json(eventos);
     } catch (error) {
-        res.status(error.code || 500).send(error);
+        res.status(00).send(error);
     }
 });
 
@@ -34,7 +34,7 @@ app.post("/login", async (req, res) => {
         res.send(token);
     } catch (error) {
         console.log(error);
-        res.status(error.code || 500).send(error);
+        res.status(500).send(error);
     }
 });
 
@@ -48,7 +48,7 @@ app.delete("/eventos/:id", async (req, res) => {
         await deleteEvento(id)
         res.send(`El usuario ${email} ha eliminado el evento ${id} `);
     } catch (error) {
-        res.status(error.code || 500).send(error);
+        res.status(500).send(error);
     }
 });
 
@@ -65,7 +65,7 @@ app.put("/eventos/:id", async (req, res) => {
         await actualizarEvento(payload)
         res.status(200).send(`El usuario ${email} a modificado el evento ${id}`)
     } catch (error) {
-        res.status(error.code || 500).send(error)
+        res.status(500).send(error)
     }
 });
 
